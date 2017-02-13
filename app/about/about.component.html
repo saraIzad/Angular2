@@ -1,0 +1,18 @@
+<div class="row" *ngIf="users">
+    <div class="col-sm-4" *ngFor="let user of users">
+        <div class="profile-card" [routerLink]="['/about',user.username]">
+            <img [src]="user.avatar" alt="" class="img-responsive img-circle">
+            <h2>{{user.name}}</h2>
+            <p><a href="https://twitter.com/{{user.username}}">{{user.username}}</a></p>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="userReqRes">
+    <div class="col-sm-4" *ngFor="let user of userReqRes">
+        <div class="profile-card" >
+            <img [src]="user.avatar" alt="" class="img-responsive img-circle">
+            <h2>{{user.first_name}}</h2>
+            <p>{{user.last_name}}</p>
+        </div>
+    </div>
+</div>

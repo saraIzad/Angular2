@@ -1,0 +1,29 @@
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" class="navbar-brand">My angular 2 App!</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+                <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+                <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+                <li><a routerLink="/user" routerLinkActive="active">Users</a></li>
+                <li><a routerLink="/template" routerLinkActive="active">Template Form</a></li>
+                <li><a routerLink="/reactive" routerLinkActive="active">Reactive Form</a></li>
+
+            </ul>
+        </div>
+
+    </nav>
+</header>
+<main>
+    <router-outlet></router-outlet>
+    <!--    <main-user></main-user>-->
+    <!--  <home-page></home-page>
+    <contact-page></contact-page>
+    <about-page></about-page>-->
+</main>
+<footer class="text-center">
+    CopyRight &copy; 2017
+</footer>
