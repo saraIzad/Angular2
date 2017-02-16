@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, UserReqRes } from '../shared/models/user';
 import { UserService } from '../shared/services/user.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -23,18 +24,27 @@ import { UserService } from '../shared/services/user.service';
 export class AboutComponent implements OnInit {
     users: User[];
     userReqRes: UserReqRes[];
-    constructor(private service: UserService) { }
+    constructor(private service: UserService, private activatedRoute: ActivatedRoute) { }
 
     ngOnInit() {
         //promise
-        this.service.getUsers().then(users => this.users = users);
+        //this.service.getUsers().then(users => this.users = users);
+        //using resolve instead of promise/observable
+        this.activatedRoute.data.forEach((data: {users: User[]}) => {
+            //console.log(data);
+           this.users = data.users;
+        });
         //observable
         this.service.getUsersReqRes()
             .subscribe(
-                users => this.userReqRes = users,
-                err=>{
-                    //log error, show error
-                });
+            users => this.userReqRes = users,
+            err => {
+                //log error, show error
+            });
+
+        /* this.activatedRoute.data.forEach(data => {
+             console.log(data);
+         });*/
 
 
     }

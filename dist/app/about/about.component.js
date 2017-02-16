@@ -10,19 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var user_service_1 = require("../shared/services/user.service");
+var router_1 = require("@angular/router");
 var AboutComponent = (function () {
-    function AboutComponent(service) {
+    function AboutComponent(service, activatedRoute) {
         this.service = service;
+        this.activatedRoute = activatedRoute;
     }
     AboutComponent.prototype.ngOnInit = function () {
         var _this = this;
         //promise
-        this.service.getUsers().then(function (users) { return _this.users = users; });
+        //this.service.getUsers().then(users => this.users = users);
+        //using resolve instead of promise/observable
+        this.activatedRoute.data.forEach(function (data) {
+            //console.log(data);
+            _this.users = data.users;
+        });
         //observable
         this.service.getUsersReqRes()
             .subscribe(function (users) { return _this.userReqRes = users; }, function (err) {
             //log error, show error
         });
+        /* this.activatedRoute.data.forEach(data => {
+             console.log(data);
+         });*/
     };
     return AboutComponent;
 }());
@@ -32,7 +42,7 @@ AboutComponent = __decorate([
         templateUrl: './app/about/about.component.html',
         styles: ["\n        .profile-card   {\n        background: #f3f3f3;\n        border-radius: 4px;\n        padding: 30px;\n        text-align: center;\n        }\n        .profile-card img  {\n        max-width: 50%;\n        margin: 15px auto;\n        }\n  "]
     }),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+    __metadata("design:paramtypes", [user_service_1.UserService, router_1.ActivatedRoute])
 ], AboutComponent);
 exports.AboutComponent = AboutComponent;
 //# sourceMappingURL=about.component.js.map

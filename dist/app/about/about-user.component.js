@@ -18,11 +18,16 @@ var AboutUserComponent = (function () {
         this.router = router;
     }
     AboutUserComponent.prototype.ngOnInit = function () {
-        var _this = this;
         //grab the current username
-        var username = this.route.snapshot.params['username'];
-        this.service.getUser(username).then(function (user) { return _this.user = user; });
-        console.log(username);
+        /* let username = this.route.snapshot.params['username'];
+ 
+         this.service.getUser(username).then(user => this.user = user);
+         console.log(username);*/
+        var _this = this;
+        //using the router and resolve instead of the service above
+        this.route.data.forEach(function (data) {
+            _this.user = data.user;
+        });
     };
     AboutUserComponent.prototype.goBack = function () {
         //window.history.back();

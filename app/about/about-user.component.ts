@@ -21,10 +21,16 @@ export class AboutUserComponent implements OnInit {
     ) { }
     ngOnInit() {
         //grab the current username
-        let username = this.route.snapshot.params['username'];
+        /* let username = this.route.snapshot.params['username'];
+ 
+         this.service.getUser(username).then(user => this.user = user);
+         console.log(username);*/
 
-        this.service.getUser(username).then(user => this.user = user);
-        console.log(username);
+        //using the router and resolve instead of the service above
+        this.route.data.forEach((data: { user: User }) => {
+            this.user = data.user;
+        });
+
     }
 
     goBack() {

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { DashboardModule } from './dashboard/dashboard.module';
 //Lazy Loading
 //import { AboutModule } from './about/about.module';
 import { appRouting } from './app.routing';
@@ -15,7 +16,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { TemplateFormComponent } from './template/template-form.component';
 import { ReactiveFormComponent } from './reactive/reactive-form.component';
 
-
+    
 // rxjs
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -30,7 +31,8 @@ import 'rxjs/add/observable/throw';
         ReactiveFormsModule,
         //AboutModule,
         HttpModule,
-        appRouting
+        appRouting,
+        DashboardModule
     ],
     declarations: [
         AppComponent,

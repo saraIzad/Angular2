@@ -11,6 +11,8 @@ var http_1 = require("@angular/http");
 var about_component_1 = require("../about/about.component");
 var about_user_component_1 = require("../about/about-user.component");
 var user_service_1 = require("../shared/services/user.service");
+var about_resolve_service_1 = require("../about/about-resolve.service");
+var about_user_resolve_1 = require("../about/about-user-resolve");
 var about_routing_1 = require("../about/about.routing");
 var about_section_component_1 = require("../about/about-section.component");
 var AboutModule = (function () {
@@ -31,7 +33,9 @@ AboutModule = __decorate([
             about_section_component_1.AboutSectionComponent
         ],
         providers: [
-            user_service_1.UserService
+            user_service_1.UserService,
+            about_resolve_service_1.AboutUsersResolve,
+            about_user_resolve_1.AboutUserResolve
         ]
     })
 ], AboutModule);

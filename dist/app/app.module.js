@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
+var dashboard_module_1 = require("./dashboard/dashboard.module");
 //Lazy Loading
 //import { AboutModule } from './about/about.module';
 var app_routing_1 = require("./app.routing");
@@ -40,7 +41,8 @@ AppModule = __decorate([
             forms_1.ReactiveFormsModule,
             //AboutModule,
             http_1.HttpModule,
-            app_routing_1.appRouting
+            app_routing_1.appRouting,
+            dashboard_module_1.DashboardModule
         ],
         declarations: [
             app_component_1.AppComponent,
