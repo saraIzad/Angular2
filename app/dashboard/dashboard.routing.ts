@@ -6,6 +6,9 @@ import { DashboardUserComponent } from './users/dashboard-user.component';
 import { DashboardUsersHomeComponent } from './users/dashboard-users-home.component';
 import { DashboardUserDetailsComponent } from './users/dashboard-user-details.component';
 
+import { AuthGuardService } from '../shared/guards/auth-guard.service';
+import { CanDeactivateGuardService } from '../shared/guards/can-deactivate-guad.service';
+
 
 export const routes: Routes = [
     {
@@ -13,11 +16,13 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
+                canActivate: [AuthGuardService],
                 component: DashboardComponent,
             },
             {
                 path: 'users',
                 component: DashboardUserComponent,
+                canActivateChild: [AuthGuardService],
                 children: [
                     {
                         path: '',
@@ -25,7 +30,8 @@ export const routes: Routes = [
                     },
                     {
                         path: ':username',
-                        component: DashboardUserDetailsComponent
+                        component: DashboardUserDetailsComponent,
+                        canDeactivate: [CanDeactivateGuardService]
                     }
                 ]
             }

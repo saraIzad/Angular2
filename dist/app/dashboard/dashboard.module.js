@@ -7,7 +7,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var common_1 = require("@angular/common");
+var forms_1 = require("@angular/forms");
 var dashboard_routing_1 = require("./dashboard.routing");
+var user_service_1 = require("../shared/services/user.service");
 var dashboard_component_1 = require("./dashboard.component");
 var dashboard_user_component_1 = require("./users/dashboard-user.component");
 var dashboard_user_details_component_1 = require("./users/dashboard-user-details.component");
@@ -21,7 +23,8 @@ DashboardModule = __decorate([
     core_1.NgModule({
         imports: [
             common_1.CommonModule,
-            dashboard_routing_1.dashboardRouting
+            dashboard_routing_1.dashboardRouting,
+            forms_1.FormsModule
         ],
         exports: [],
         declarations: [
@@ -30,7 +33,9 @@ DashboardModule = __decorate([
             dashboard_user_details_component_1.DashboardUserDetailsComponent,
             dashboard_users_home_component_1.DashboardUsersHomeComponent
         ],
-        providers: [],
+        providers: [
+            user_service_1.UserService
+        ],
     })
 ], DashboardModule);
 exports.DashboardModule = DashboardModule;

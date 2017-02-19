@@ -9,17 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
+var user_service_1 = require("../../shared/services/user.service");
 var DashboardUserComponent = (function () {
-    function DashboardUserComponent() {
+    function DashboardUserComponent(userService) {
+        this.userService = userService;
     }
-    DashboardUserComponent.prototype.ngOnInit = function () { };
+    DashboardUserComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getUsers().then(function (users) { return _this.users = users; });
+    };
     return DashboardUserComponent;
 }());
 DashboardUserComponent = __decorate([
     core_1.Component({
         templateUrl: './app/dashboard/users/dashboard-user.component.html'
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [user_service_1.UserService])
 ], DashboardUserComponent);
 exports.DashboardUserComponent = DashboardUserComponent;
 //# sourceMappingURL=dashboard-user.component.js.map

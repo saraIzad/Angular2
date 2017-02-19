@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { dashboardRouting } from './dashboard.routing';
+import { UserService } from '../shared/services/user.service';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardUserComponent } from './users/dashboard-user.component';
@@ -12,7 +14,8 @@ import { DashboardUsersHomeComponent } from './users/dashboard-users-home.compon
 @NgModule({
     imports: [
         CommonModule,
-        dashboardRouting
+        dashboardRouting,
+        FormsModule
     ],
     exports: [],
     declarations: [
@@ -21,6 +24,8 @@ import { DashboardUsersHomeComponent } from './users/dashboard-users-home.compon
         DashboardUserDetailsComponent,
         DashboardUsersHomeComponent
         ],
-    providers: [],
+    providers: [
+        UserService
+    ],
 })
 export class DashboardModule { }

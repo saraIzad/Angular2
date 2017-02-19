@@ -3,6 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { DashboardModule } from './dashboard/dashboard.module';
+
+import { AuthGuardService } from './shared/guards/auth-guard.service';
+import { CanDeactivateGuardService } from './shared/guards/can-deactivate-guad.service';
+
 //Lazy Loading
 //import { AboutModule } from './about/about.module';
 import { appRouting } from './app.routing';
@@ -46,6 +50,8 @@ import 'rxjs/add/observable/throw';
         ReactiveFormComponent
     ],
     providers: [
+        AuthGuardService,
+        CanDeactivateGuardService
     ],
     bootstrap: [AppComponent]
 })

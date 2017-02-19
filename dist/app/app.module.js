@@ -10,6 +10,8 @@ var platform_browser_1 = require("@angular/platform-browser");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/http");
 var dashboard_module_1 = require("./dashboard/dashboard.module");
+var auth_guard_service_1 = require("./shared/guards/auth-guard.service");
+var can_deactivate_guad_service_1 = require("./shared/guards/can-deactivate-guad.service");
 //Lazy Loading
 //import { AboutModule } from './about/about.module';
 var app_routing_1 = require("./app.routing");
@@ -55,7 +57,10 @@ AppModule = __decorate([
             template_form_component_1.TemplateFormComponent,
             reactive_form_component_1.ReactiveFormComponent
         ],
-        providers: [],
+        providers: [
+            auth_guard_service_1.AuthGuardService,
+            can_deactivate_guad_service_1.CanDeactivateGuardService
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
